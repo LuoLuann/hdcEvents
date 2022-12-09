@@ -1,0 +1,209 @@
+/* General */
+* {
+    font-family: 'Roboto';
+}
+
+body {
+    /*altura da tela*/
+    min-height: 100vh;
+    /*Separar o conteudo e a borda*/
+    padding-bottom: 100px;
+    position: relative;
+}
+
+/*O header vem do layout*/
+header {
+    background-color: #FFF;
+    border-bottom: 1px solid #ccc;
+}
+
+/*Na row que vem do bootstrap*/
+.row {
+    /*tirando a borda negaativa que ela vem automaticamente*/
+    /*colocando 0px ela já zera, mas eu quis dar mais espaçamento*/
+    margin: 0px;
+}
+/*Containers criam meios para centralizar e, horizontalmente, preencher os conteúdos de seu site; 
+Use.container para ter uma largura responsiva em pixel ou.container-fluid
+para ter width: 100%, em todas viewports e tamanhos de disposivos. Rows são elemntos para envolver coluna*/
+.container-fluid {
+    padding: 0px;
+}
+
+/*Padronizando as cores dos botoes dos cards*/
+.btn-primary {
+    background: #2f3031;
+    border: 2px solid #111;
+}
+
+/*esse hover é para quando passarmos o mouse encima, alterar a cor*/
+.btn-primary:hover {
+    background-color: #111;
+    border-color: #111;
+}
+/*configurando a mensagem do flash message*/
+.msg {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+/*tentando mudar a cor do botao apertar
+.bnt {
+    background-color: rgb(255, 255, 255);
+}
+*/
+/*Configurando a navbar*/
+
+#navbar img {
+    width: 40px;
+}
+
+#navbar {
+    /*espacamento entre si dos itens da nav-bar*/
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 5p 0;
+}
+
+#navbar a {
+    font-size: 14px;
+    color: #757575;
+
+}
+
+#navbar a:hover {
+    color: #111;
+}
+
+/*Search container*/
+#search-container {
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    padding: 50px;
+    text-align: center;
+}
+
+#search-container h1{
+    color: #FFF;
+    margin-bottom: 30px;
+    font-weight: 00x;
+}
+#search-container form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+/*events list*/
+/*espaçando o conteudo da borda*/
+#events-container {
+    padding: 50px;
+}
+
+#events-container h2 {
+    margin-bottom: 10px;
+}
+#events-container .subtitle {
+     color: #757575;
+     margin-bottom: 30px;
+}
+
+#cards-container {
+    display: flex;
+}
+/*configurando cada um dos cards*/
+#events-container .card {
+    flex: 1 1 24%;
+    /*largura max de 25% para caber no max 4 por linha*/
+    max-width: 25%;
+    border-radius: 10px;
+    padding: 0;
+    margin: .5px;
+}
+#events-container img {
+    max-height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.card .card-date {
+    font-size: 12px;
+    color: #ccc;
+}
+.card .card-title {
+    color: #212121;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.card-participants {
+    font-size: 14px;
+    color: #757575;
+}
+
+
+/*event create page*/
+#event-create-container {
+    padding: 30px;
+}
+/*deixando as labels em negrito*/
+#event-create-container label {
+    font-weight: bold;
+}
+
+/*em todos inputs, select e textarea */
+#event-create-container input,  #event-create-container select, 
+#event-create-container textarea {
+    font-size: 12px;
+}
+/*Event page*/
+/*pra descolar da nav-bar*/
+#image-container, #info-container {
+    margin-top: 30px;
+}
+
+/*aqui quebra o canto da img*/
+#image-container img {
+    border-radius: 10px;
+}
+#info-container h1 {
+    font-size: 36px;
+    font-weight: 900;
+}
+#info-container p {
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+}
+#info-container h3, #description-container h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+#info-container ion-icon {
+    font-size: 20px;
+    color: #2f3031;
+    margin-right: 5px;
+}
+#info-container #event-submit {
+    margin: 20px 0;
+}
+
+/*Footer*/
+footer {
+    text-align: center;
+    background-color: #353E48;
+    color: #FFF;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin-bottom: 0;
+}
