@@ -193,6 +193,14 @@ para ter width: 100%, em todas viewports e tamanhos de disposivos. Rows são ele
     margin: 20px 0;
 }
 
+#items-list {
+    list-style: none;
+    padding-left: 0;
+}
+#items-list li {
+    display: flex;
+}
+
 /*Footer*/
 footer {
     text-align: center;

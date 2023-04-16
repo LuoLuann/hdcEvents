@@ -23,6 +23,7 @@ class EventController extends Controller
         //criando a funcao para post no store
         //nela recebemos um request do form
         public function store(Request $request) {
+            //dd($request);
             //agr criamos um objeto com esses dados
             //ent instacinamos a classe
             $event = new Event;
@@ -30,6 +31,7 @@ class EventController extends Controller
             $event->city = $request->city;
             $event->private = $request->private;
             $event->description = $request->description;
+            $event->items = $request->items;
             
             //image uploud
             if($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -50,11 +52,14 @@ class EventController extends Controller
                 //agr alteramos a imagem do evento para a image com o novo nome
 
                 $event->image = $imageName;
+                //dd($event->image);
             }
 
             //agr basta salvar todos os dados no banco salvando o objeto instaciado
-            $event->save();
+            //dd($request);
 
+            $event->save();
+            
             //agr so precisamos redicionar o user para alguma pagina
             //esse metodo "with" é para exxibir uma mensagem para o user
             return redirect('/')->with('msg', 'Evento criado com sucesso');
