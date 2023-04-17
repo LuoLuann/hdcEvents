@@ -77,6 +77,10 @@ class EventController extends Controller
             //agr basta salvar todos os dados no banco salvando o objeto instaciado
             //dd($request);
 
+            //pegando o usuario logado, para pegar o id dele e por no evento
+            $user = auth()->user();
+            $event->user_id = $user->id;
+
             $event->save();
             
             //agr so precisamos redicionar o user para alguma pagina

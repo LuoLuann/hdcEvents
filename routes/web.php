@@ -27,7 +27,8 @@ use App\Http\Controllers\ProductController;
 //onde passo o EventController, na rota 'index' (action)
 Route::get('/', [EventController::class, 'index']);
 
-Route::get('/events/create', [EventController::class, 'create']);
+//esse middleware serve para garantir que o user esteja logado para criar evento
+Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 //rota para habilitar o botão "saber mais" do evento mostrando o evento
 Route::get('/events/{id}', [EventController::class, 'show']);
 

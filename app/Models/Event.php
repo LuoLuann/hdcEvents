@@ -10,7 +10,6 @@ class Event extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-
         'description',
         'city',
         'private',
@@ -24,4 +23,9 @@ class Event extends Model
     ];
     protected $dates = ['date'];
    
+
+    public function user() {
+        //pertence a um usuario
+        return $this->belongsTo(User::class);
+    }
 }
