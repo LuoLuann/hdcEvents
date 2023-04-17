@@ -9,11 +9,29 @@ use App\Models\Event;
 class EventController extends Controller
 {
     public function index() {
-        //chamar todos eventos salvos no banco
-        //esse comando é do ORM
-        $events = Event::all();
 
-        return view('welcome',['events'=>$events]);
+        $search = request('search');
+
+        if($search) {
+            //podemos fazer um array com as caracteristicas
+            //que queremos buscar
+            $events = Event::where([
+                //queremos pelo title, o like indica parecido
+                //para n so vir os titulos iguais e % significa que pode qualquer 
+                //qualquer coisa pra frente e qualquer pra trás
+                ['title', 'like', '%'.$search.'%']
+
+                //esse get garante que peguei os events
+            ])->get();
+        } else {
+            //chamar todos eventos salvos no banco
+            //esse comando é do ORM
+            $events = Event::all();
+
+        }
+        
+
+        return view('welcome',['events'=>$events, 'search' => $search]);
         
         }
 
@@ -28,6 +46,7 @@ class EventController extends Controller
             //ent instacinamos a classe
             $event = new Event;
             $event->title = $request->title;
+            $event->date = $request->date;
             $event->city = $request->city;
             $event->private = $request->private;
             $event->description = $request->description;

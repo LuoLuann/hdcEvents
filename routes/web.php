@@ -44,3 +44,13 @@ Route::get('/contact', function() {
 Route::get('/produtos/produtos', [ProductController::class, 'produtos']);
 
 Route::get('/produtos/produto/{id?}', [ProductController::class, 'produto']);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
