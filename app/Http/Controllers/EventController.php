@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+    
 use Illuminate\Http\Request;
 
 use App\Models\Event;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -91,8 +92,7 @@ class EventController extends Controller
         }
         public function show($id) {
             //chamando a classe Event para usar o metodo findorfail
-            $event = Event::findOrFail($id);
-
+            $event = Event::findOrFail($id);  
             return view('events.show', ['event'=> $event]);
         }
         public function login() {
@@ -100,5 +100,17 @@ class EventController extends Controller
         }
         public function cadastrar() {
             return view('events.cadastrar');
+        }
+
+        public function joinEvent($id) {
+
+            $user = auth()->user();
+
+            //inserindo o id do usuario ao evento
+            $user->eventAsParticipant()->attach($id);
+
+            $event = Event::findOrFail($id);
+
+            dd($event);
         }
 }

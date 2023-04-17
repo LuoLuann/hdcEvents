@@ -31,6 +31,7 @@ Route::get('/', [EventController::class, 'index']);
 Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 //rota para habilitar o botão "saber mais" do evento mostrando o evento
 Route::get('/events/{id}', [EventController::class, 'show']);
+Route::get('/events/join/{id}', [EventController::class, 'joinEvent'])->middleware('auth');
 
 //por convenção, sempre add ao "store"
 Route::post('/events', [EventController::class, 'store']);
