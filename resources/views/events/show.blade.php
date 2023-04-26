@@ -16,8 +16,8 @@
                     {{$event->city}}
                 </p>
 
-                <p class="events-participants"><ion-icon name="people-outline"></ion-icon> X Participantes </p>
-                <p class="event-owner"><ion-icon name="star-outline"></ion-icon> Criador do Evento</p>
+                <p class="events-participants"><ion-icon name="people-outline"></ion-icon> {{ count($event->users) }} Participantes </p>
+                <p class="event-owner"><ion-icon name="star-outline"></ion-icon> {{ $eventOwner['name'] }}  </p>
                 <form action="/events/join/ {{ $event->id }}" method="POST">
                     @csrf
                     <a href="/events/join/ {{ $event->id }}" 

@@ -92,8 +92,12 @@ class EventController extends Controller
         }
         public function show($id) {
             //chamando a classe Event para usar o metodo findorfail
-            $event = Event::findOrFail($id);  
-            return view('events.show', ['event'=> $event]);
+            $event = Event::findOrFail($id);
+
+            //colocando o dono do evento para ser exibido
+            $eventOwner = User::where('id', $event->user_id)->first()->toArray();
+
+            return view('events.show', ['event'=> $event,'eventOwner' => $eventOwner]);
         }
         public function login() {
             return view('events.login');

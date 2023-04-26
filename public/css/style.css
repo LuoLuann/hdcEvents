@@ -201,6 +201,10 @@ para ter width: 100%, em todas viewports e tamanhos de disposivos. Rows são ele
     display: flex;
 }
 
+#description-container {
+    margin-top: 30px;
+}
+
 /*Footer*/
 footer {
     text-align: center;
